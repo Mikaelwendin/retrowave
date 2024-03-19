@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    background: #000;
+}
+
+main {
+    margin-top: 50em;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 1;
+    position: relative;
+}
+.indicator {
+    position: fixed;
+    top: 0;
+    width: 20px;
+    background-color: rgba(54, 226, 248, 0.5); /* Neon blue color with opacity */
+    box-shadow: 0 0 20px rgba(54, 226, 248, 0.5),
+        /* Neon glow effect */ 0 0 40px rgba(54, 226, 248, 0.5),
+        /* Neon glow effect */ 0 0 60px rgba(54, 226, 248, 0.5),
+        /* Neon glow effect */ 0 0 80px rgba(54, 226, 248, 0.5); /* Neon glow effect */
+    z-index: 9999;
+    transition: transform 0.3s ease;
+}
+
+.left-indicator {
+    left: 0;
+    height: 100%;
+}
+
+.right-indicator {
+    right: 0;
+    height: 100%;
+}
+.front,
+.end {
+    color: #c6cbf5;
+    font-family: "Orbitron", sans-serif;
+    font-size: 9rem;
+    font-weight: 1000;
+    line-height: 1.2;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 3rem;
+    width: auto;
+    z-index: 11;
+    background: -webkit-linear-gradient(
+        top,
+        #151c60,
+        #c6cbf5 40%,
+        darken(purple, 30%) 40%,
+        #e1a0ce 65%,
+        white
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+}
+
+.end {
+    top: 18vh;
+}
+
+.dev {
+    color: rgb(209, 0, 177);
+    display: block;
+    font-family: "Yellowtail", cursive;
+    font-size: 8rem;
+    position: absolute;
+    text-shadow: 0 0 1px rgb(209, 0, 177), 0 -3px 3px rgba(white, 0.8), 0 3px 3px rgba(black, 0.5),
+        0 0 15px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+    text-align: center;
+    text-decoration: underline;
+    text-transform: none;
+    transform: skew(-10deg) rotate(-10deg);
+    top: 26vh;
+    width: auto;
+    z-index: 11;
+}
+
+img {
+    position: fixed;
+    width: 100%;
+    transition: top 1s;
+}
+
+.graph-container {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+.graph {
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0px,
+            rgba(54, 226, 248, 0.5) 0%,
+            rgba(54, 226, 248, 0.5) 3px,
+            rgba(0, 0, 0, 0) 0px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0) 0px,
+            rgba(54, 226, 248, 0.5) 0%,
+            rgba(54, 226, 248, 0.5) 3px,
+            rgba(0, 0, 0, 0) 0px
+        );
+
+    background-size: 4em 4em, 4em 4em;
+    background-color: black;
+    border-top: 5px solid rgb(209, 0, 177);
+    box-shadow: 0 -25px 45px rgb(209, 0, 177);
+    height: 40em;
+    perspective: 1000px;
+    margin-top: 20em;
+    transform: perspective(200px) rotateX(45deg) scale(2);
+}
+
+.graph::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 95%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.graph::before {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0) 30%,
+        rgba(209, 0, 177, 0.5) 90%
+    );
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.information-container {
+    z-index: 10;
+    position: relative;
+    width: 50%;
+    height: 40vh;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    box-shadow: 0 0 40px rgba(222, 35, 243, 0.5);
+    border: 3px solid rgba(255, 0, 238, 0.5);
+    transform: scale(0);
+
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    &:last-child {
+        margin-bottom: 20rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+        font-family: "Yellowtail", cursive;
+        color: rgb(209, 0, 177);
+        text-shadow: 0 0 1px rgb(209, 0, 177), 0 3px 3px rgba(rgb(207, 12, 168), 0.8),
+            0 3px 3px rgba(black, 0.5), 0 0 15px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+    }
+    p {
+        font-size: 1.1rem;
+        font-family: "Yellowtail", cursive;
+        color: rgb(209, 0, 177);
+        text-shadow: 0 0 1px rgb(209, 0, 177), 0 3px 3px rgba(rgb(207, 12, 168), 0.8),
+            0 3px 3px rgba(black, 0.5), 0 0 15px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.scroll-arrow {
+    position: fixed;
+    z-index: 999;
+    cursor: pointer;
+    fill: rgba(54, 226, 248, 0.5);
+    border: 1px solid rgba(54, 226, 248, 0.5);
+    box-shadow: 0 0 20px rgba(54, 226, 248, 0.5);
+    transition: 0.5s;
+    right: 20px;
+}
+
+.scroll-arrow:hover {
+    fill: rgba(158, 243, 254, 0.5);
+    box-shadow: 0 0 60px rgba(54, 226, 248, 0.9);
+}
+
+.scroll-arrow.up {
+    transform: translateX(-50%);
+    top: calc(20% - 10px);
+}
+
+.scroll-arrow.down {
+    transform: translateX(-50%);
+    bottom: calc(50% - 10px);
+}
