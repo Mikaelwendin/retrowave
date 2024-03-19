@@ -1,11 +1,13 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback, useEffect, useRef } from "react";
+import { DotButton, useDotButton } from "./components/emblabuttons";
 import Information from "./components/information";
 import ScrollIndicator from "./components/scrollindicator";
 
 const Home = () => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+    const [emblaRefTwo, emblaApiTwo] = useEmblaCarousel({ loop: true });
 
     const scrollPrev = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev();
@@ -14,6 +16,16 @@ const Home = () => {
     const scrollNext = useCallback(() => {
         if (emblaApi) emblaApi.scrollNext();
     }, [emblaApi]);
+
+    const scrollPrevTwo = () => {
+        if (emblaApiTwo) emblaApiTwo.scrollPrev();
+    };
+
+    const scrollNextTwo = () => {
+        if (emblaApiTwo) emblaApiTwo.scrollNext();
+    };
+
+    const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
     const presentation = {
         title: "Dynamic Title 2",
@@ -99,11 +111,46 @@ const Home = () => {
                                 <Information content={info3} />
                             </div>
                         </div>
-                        <div className="button-container">
+                        {/* <div className="button-container">
                             <button className="embla__prev btn" onClick={scrollPrev}>
                                 Prev
                             </button>
                             <button className="embla__next btn" onClick={scrollNext}>
+                                Next
+                            </button>
+                        </div> */}
+                        <div className="embla__dots">
+                            {scrollSnaps.map((_, index) => (
+                                <DotButton
+                                    key={index}
+                                    onClick={() => onDotButtonClick(index)}
+                                    className={"embla__dot".concat(
+                                        index === selectedIndex ? " embla__dot--selected" : ""
+                                    )}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                    <div className="embla" ref={emblaRefTwo}>
+                        <div className="embla__container">
+                            <div className="embla__slide information-container" key="1">
+                                <Information content={presentation} />
+                                <Information content={info} />
+                            </div>
+                            <div className="embla__slide information-container" key="2">
+                                <Information content={presentation2} />
+                                <Information content={info2} />
+                            </div>
+                            <div className="embla__slide information-container" key="3">
+                                <Information content={presentation3} />
+                                <Information content={info3} />
+                            </div>
+                        </div>
+                        <div className="button-container">
+                            <button className="embla__prev btn" onClick={scrollPrevTwo}>
+                                Prev
+                            </button>
+                            <button className="embla__next btn" onClick={scrollNextTwo}>
                                 Next
                             </button>
                         </div>

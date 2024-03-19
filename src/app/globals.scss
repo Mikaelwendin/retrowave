@@ -34,11 +34,9 @@ main {
     position: fixed;
     top: 0;
     width: 20px;
-    background-color: rgba(54, 226, 248, 0.5); /* Neon blue color with opacity */
-    box-shadow: 0 0 20px rgba(54, 226, 248, 0.5),
-        /* Neon glow effect */ 0 0 40px rgba(54, 226, 248, 0.5),
-        /* Neon glow effect */ 0 0 60px rgba(54, 226, 248, 0.5),
-        /* Neon glow effect */ 0 0 80px rgba(54, 226, 248, 0.5); /* Neon glow effect */
+    background-color: rgba(54, 226, 248, 0.5);
+    box-shadow: 0 0 20px rgba(54, 226, 248, 0.5), 0 0 10px rgba(54, 226, 248, 0.5),
+        0 0 30px rgba(54, 226, 248, 0.5), 0 0 40px rgba(54, 226, 248, 0.5);
     z-index: 9999;
     transition: transform 0.3s ease;
 }
@@ -91,7 +89,7 @@ main {
     font-size: 8rem;
     position: absolute;
     text-shadow: 0 0 1px rgb(209, 0, 177), 0 -3px 3px rgba(white, 0.8), 0 3px 3px rgba(black, 0.5),
-        0 0 15px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+        0 0 40px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
     text-align: center;
     text-decoration: underline;
     text-transform: none;
@@ -99,6 +97,7 @@ main {
     top: 26vh;
     width: auto;
     z-index: 11;
+    animation: flicker 0.2s infinite alternate;
 }
 
 img {
@@ -139,6 +138,7 @@ img {
     perspective: 1000px;
     margin-top: 20em;
     transform: perspective(200px) rotateX(45deg) scale(2);
+    animation: animateLines 20s linear infinite forwards;
 }
 
 .graph::after {
@@ -206,6 +206,28 @@ img {
         opacity: 1;
     }
 }
+@keyframes flicker {
+    0% {
+        text-shadow: 0 0 1px rgb(209, 0, 177), 0 -3px 3px rgba(white, 0.8),
+            0 3px 3px rgba(black, 0.5), 0 0 40px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 1px rgb(209, 0, 177), 0 -3px 3px rgba(white, 0.8),
+            0 3px 3px rgba(black, 0.5), 0 0 35px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 1px rgb(209, 0, 177), 0 -3px 3px rgba(white, 0.8),
+            0 3px 3px rgba(black, 0.5), 0 0 38px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+    }
+}
+@keyframes animateLines {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 4em 4em;
+    }
+}
 
 .scroll-arrow {
     position: fixed;
@@ -259,6 +281,7 @@ img {
     align-items: center;
     margin-bottom: 10rem;
     transform: scale(0);
+    padding-bottom: 5rem;
 }
 .embla__container {
     display: flex;
@@ -266,4 +289,49 @@ img {
 .embla__slide {
     flex: 0 0 100%;
     min-width: 0;
+}
+.embla__dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+    width: 50%;
+}
+.embla__dot {
+    -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(54, 226, 248, 0.5);
+    box-shadow: 0 0 20px rgba(54, 226, 248, 0.5);
+    margin-top: 10px;
+}
+.embla__dot:after {
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    content: "";
+}
+.embla__dot--selected:after {
+    box-shadow: inset 0 0 0 0.2rem var(--text-body);
+    background-color: #000;
+    box-shadow: 0 0 40px rgba(54, 226, 248, 0.5);
+    transition: 0.5s;
 }
