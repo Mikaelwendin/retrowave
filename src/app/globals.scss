@@ -105,12 +105,14 @@ img {
     position: fixed;
     width: 100%;
     transition: top 1s;
+    top: -15%;
+    overflow: hidden;
 }
 
 .graph-container {
     overflow: hidden;
     position: fixed;
-    width: 100%;
+    width: 200%;
 }
 
 .graph {

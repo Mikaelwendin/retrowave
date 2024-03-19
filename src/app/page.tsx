@@ -51,7 +51,7 @@ const Home = () => {
             <h1 className="front">Front </h1>
             <h1 className="end">End </h1>
             <h2 className="dev">Developer</h2>
-            <img src="./testing.svg" alt="Test Image" />
+            <img src="./sunrise.svg" alt="Test Image" />
             <div className="graph-container">
                 <div className="graph"></div>
             </div>
