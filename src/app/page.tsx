@@ -1,5 +1,6 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
 import React, { useCallback, useEffect, useRef } from "react";
 import { DotButton, useDotButton } from "./components/emblabuttons";
 import Information from "./components/information";
@@ -28,8 +29,19 @@ const Home = () => {
     const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
     const presentation = {
-        title: "Dynamic Title 2",
-        description: "This is some dynamic content 2.",
+        title: "Tech Stack",
+        description: "",
+        images: [
+            "/angular.svg",
+            "/react.svg",
+            "/next.svg",
+            "/vue.svg",
+            "/sass.svg",
+            "/html-5.svg",
+            "/mongodb.svg",
+        ],
+        imageClass: "logo",
+        starRatings: [3, 3, 2, 2, 4, 4, 1],
     };
     const info = {
         title: "Dynamic Title 1",
@@ -40,16 +52,27 @@ const Home = () => {
         description: "This hej.",
     };
     const presentation2 = {
-        title: "tjena",
-        description: "lol.",
+        title: "About me",
+        description:
+            "Hello everyone, I'm Mikael! With a background in private security, I've always been passionate about ensuring safety and integrity. However, my fascination with coding and technology has led me to venture into frontend development",
+        images: ["/cv.webp"],
+        imageClass: "portrait",
     };
     const info3 = {
         title: "asdfasfd",
         description: "asdfasdfsadf hej.",
     };
     const presentation3 = {
-        title: "sadfasdfasdf",
-        description: "loasdfasdl.",
+        title: "Experience",
+        description: `
+        I'm a Frontend developer with a solid foundation in web development. I made a career transition into this field after completing a 2-year vocational education program in frontend development.
+        
+        Since September 2023, I've been interning at iQuest, a fast growing propTech company, where I've had the opportunity to apply my knowledge in a professional setting. At iQuest, I've primarily worked with Angular, developing applications to streamline property management processes. It's been an exhilarating journey, collaborating with talented colleagues and contributing to innovative solutions that enhance property management efficiency.
+        
+        Prior to my internship, I dedicated time to completing additional courses in web development and programming, further expanding my skill set and staying abreast of the latest industry trends. I'm passionate about frontend development and excited about the endless possibilities it offers for creating intuitive and impactful user experiences.
+        
+        Looking ahead, I'm eager to continue growing as a frontend developer, exploring new technologies, and contributing to projects that make a meaningful difference. Let's connect and embark on this journey together!
+        `,
     };
 
     useEffect(() => {
@@ -90,7 +113,13 @@ const Home = () => {
             <h1 className="front">Front </h1>
             <h1 className="end">End </h1>
             <h2 className="dev">Developer</h2>
-            <img src="./sunrise.svg" alt="Test Image" />
+            <Image
+                src="./sunrise.svg"
+                alt="Test Image"
+                className="bg-sunrise"
+                width={500}
+                height={500}
+            />
             <div className="graph-container">
                 <div className="graph"></div>
             </div>
@@ -100,15 +129,12 @@ const Home = () => {
                         <div className="embla__container">
                             <div className="embla__slide information-container" key="1">
                                 <Information content={presentation} />
-                                <Information content={info} />
                             </div>
                             <div className="embla__slide information-container" key="2">
                                 <Information content={presentation2} />
-                                <Information content={info2} />
                             </div>
                             <div className="embla__slide information-container" key="3">
                                 <Information content={presentation3} />
-                                <Information content={info3} />
                             </div>
                         </div>
                         {/* <div className="button-container">
