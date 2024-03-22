@@ -128,10 +128,10 @@ const Home = () => {
                     <div className="embla" ref={emblaRef}>
                         <div className="embla__container">
                             <div className="embla__slide information-container" key="1">
-                                <Information content={presentation} />
+                                <Information content={presentation2} />
                             </div>
                             <div className="embla__slide information-container" key="2">
-                                <Information content={presentation2} />
+                                <Information content={presentation} />
                             </div>
                             <div className="embla__slide information-container" key="3">
                                 <Information content={presentation3} />

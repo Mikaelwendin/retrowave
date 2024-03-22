@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Outrun Future";
+    src: url("/fonts/outrun-future.woff2") format("woff2"),
+        url("/fonts/outrun-future.woff") format("woff"),
+        url("/fonts/outrun-future.otf") format("opentype");
+    /* Add more src lines for additional font formats if needed */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Outrun Future Bold";
+    src: url("/fonts/outrun-future-bold.woff2") format("woff2"),
+        url("/fonts/outrun-future-bold.woff") format("woff"),
+        url("/fonts/outrun-future-bold.otf") format("opentype");
+    /* Add more src lines for additional font formats if needed */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Outrun Future Bold Italic";
+    src: url("/fonts/outrun-future-bold-italic.woff2") format("woff2"),
+        url("/fonts/outrun-future-bold-italic.woff") format("woff"),
+        url("/fonts/outrun-future-bold-italic.otf") format("opentype");
+    /* Add more src lines for additional font formats if needed */
+    font-weight: bold;
+    font-style: italic;
+}
+
 body {
     margin: 0;
     background: #000;
@@ -181,6 +211,7 @@ main {
     }
     p {
         word-wrap: break-word;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     }
     .image-wrapper {
         display: flex;
@@ -193,8 +224,8 @@ main {
 
             .star {
                 color: #ffd700;
-                filter: drop-shadow(0 0 5px #ffd700) drop-shadow(0 0 10px #ffd700)
-                    drop-shadow(0 0 15px #ffd700);
+                filter: drop-shadow(0 0 3px #ffd700) drop-shadow(0 0 3px #ffd700)
+                    drop-shadow(0 0 8px #ffd700);
                 font-size: 1.5rem;
             }
         }
@@ -224,23 +255,21 @@ main {
         stroke-width: 1;
         width: 4rem;
         height: auto;
-        filter: drop-shadow(0 0 5px rgb(209, 0, 177)) drop-shadow(0 0 10px rgb(209, 0, 177))
-            drop-shadow(0 0 15px rgb(209, 0, 177));
+        filter: drop-shadow(0 0 3px rgba(54, 226, 248, 0.9))
+            drop-shadow(0 0 5px rgba(54, 226, 248, 0.9));
     }
 
     h3 {
-        font-size: 1.5rem;
-        font-family: "Yellowtail", cursive;
-        color: rgb(209, 0, 177);
-        text-shadow: 0 0 1px rgb(209, 0, 177), 0 3px 3px rgba(rgb(207, 12, 168), 0.8),
-            0 3px 3px rgba(black, 0.5), 0 0 15px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+        font-size: 2.5rem;
+        font-family: "Outrun Future", sans-serif;
+        color: rgba(209, 0, 177, 0.8);
+        text-shadow: 0 0 2px rgba(209, 0, 177, 0.5), 0 2px 2px rgba(209, 0, 177, 0.4);
     }
+
     p {
         font-size: 1.1rem;
-        font-family: "Yellowtail", cursive;
-        color: rgb(209, 0, 177);
-        text-shadow: 0 0 1px rgb(209, 0, 177), 0 3px 3px rgba(rgb(207, 12, 168), 0.8),
-            0 3px 3px rgba(black, 0.5), 0 0 15px rgb(209, 0, 177), 0 0 45px rgba(209, 0, 177, 0.8);
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+        color: rgba(54, 226, 248, 0.9);
     }
 }
 .carousel {
