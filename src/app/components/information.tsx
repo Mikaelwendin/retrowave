@@ -3,7 +3,7 @@ import React from "react";
 
 interface ContentProps {
     title: string;
-    description: string;
+    description: any;
     images?: string[];
     starRatings?: number[];
     titleClass?: string;

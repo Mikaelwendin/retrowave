@@ -44,9 +44,18 @@ const Home = () => {
         starRatings: [3, 3, 2, 2, 4, 4, 1],
     };
     const info = {
-        title: "Dynamic Title 1",
-        description: "This is some dynamic content 1.",
+        title: "Projects",
+        description: (
+            <p>
+                To view repositories, please visit{" "}
+                <a href="https://github.com/Mikaelwendin/" target="_blank" rel="noopener">
+                    https://github.com/Mikaelwendin/
+                </a>
+                .
+            </p>
+        ),
     };
+
     const info2 = {
         title: "hej",
         description: "This hej.",
@@ -160,7 +169,6 @@ const Home = () => {
                     <div className="embla" ref={emblaRefTwo}>
                         <div className="embla__container">
                             <div className="embla__slide information-container" key="1">
-                                <Information content={presentation} />
                                 <Information content={info} />
                             </div>
                             <div className="embla__slide information-container" key="2">
