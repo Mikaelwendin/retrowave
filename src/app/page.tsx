@@ -46,19 +46,27 @@ const Home = () => {
     const info = {
         title: "Projects",
         description: (
-            <p>
-                To view repositories, please visit{" "}
-                <a href="https://github.com/Mikaelwendin/" target="_blank" rel="noopener">
-                    https://github.com/Mikaelwendin/
+            <span>
+                To view projects, please visit my{" "}
+                <a
+                    href="https://github.com/Mikaelwendin?tab=repositories"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    github repositories
                 </a>
                 .
-            </p>
+            </span>
         ),
     };
 
     const info2 = {
-        title: "hej",
-        description: "This hej.",
+        title: "Live projects",
+        description: (
+            <a href="https://mikaelwendin.github.io/flavorforge/" target="_blank" rel="noopener">
+                <Image src={"/flavor.png"} height={400} width={400} alt="Flavorforge"></Image>{" "}
+            </a>
+        ),
     };
     const presentation2 = {
         title: "About me",
@@ -172,11 +180,9 @@ const Home = () => {
                                 <Information content={info} />
                             </div>
                             <div className="embla__slide information-container" key="2">
-                                <Information content={presentation2} />
                                 <Information content={info2} />
                             </div>
                             <div className="embla__slide information-container" key="3">
-                                <Information content={presentation3} />
                                 <Information content={info3} />
                             </div>
                         </div>
