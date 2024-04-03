@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import React, { useCallback, useEffect, useRef } from "react";
 import { DotButton, useDotButton } from "./components/emblabuttons";
+import Footer from "./components/footer";
 import Information from "./components/information";
 import ScrollIndicator from "./components/scrollindicator";
 
@@ -45,23 +46,12 @@ const Home = () => {
     };
     const info = {
         title: "Projects",
-        description: (
-            <span>
-                To view projects, please visit my{" "}
-                <a
-                    href="https://github.com/Mikaelwendin?tab=repositories"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    github repositories
-                </a>
-                .
-            </span>
-        ),
+        description:
+            "Here are a few of the projects I've worked on as part of my front-end education. I'm constantly working on new projects, so check back often for updates! To see what's currently in progress, visit my GitHub page.",
     };
 
     const info2 = {
-        title: "Live projects",
+        title: "FlavorForge",
         description: (
             <a href="https://mikaelwendin.github.io/flavorforge/" target="_blank" rel="noopener">
                 <Image src={"/flavor.png"} height={400} width={400} alt="Flavorforge"></Image>{" "}
@@ -70,14 +60,17 @@ const Home = () => {
     };
     const presentation2 = {
         title: "About me",
-        description:
-            "Hello everyone, I'm Mikael! With a background in private security, I've always been passionate about ensuring safety and integrity. However, my fascination with coding and technology has led me to venture into frontend development",
+        description: "Hello everyone, I'm Mikael",
         images: ["/cv.webp"],
         imageClass: "portrait",
     };
     const info3 = {
-        title: "asdfasfd",
-        description: "asdfasdfsadf hej.",
+        title: "Mini-game",
+        description: (
+            <a href="https://mini-game-lime.vercel.app/" target="_blank" rel="noopener">
+                <Image src={"/tictactoe.png"} height={400} width={400} alt="Flavorforge"></Image>{" "}
+            </a>
+        ),
     };
     const presentation3 = {
         title: "Experience",
@@ -148,10 +141,10 @@ const Home = () => {
                                 <Information content={presentation2} />
                             </div>
                             <div className="embla__slide information-container" key="2">
-                                <Information content={presentation} />
+                                <Information content={presentation3} />
                             </div>
                             <div className="embla__slide information-container" key="3">
-                                <Information content={presentation3} />
+                                <Information content={presentation} />
                             </div>
                         </div>
                         {/* <div className="button-container">
@@ -196,6 +189,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+                <Footer></Footer>
             </main>
         </div>
     );
