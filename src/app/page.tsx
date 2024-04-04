@@ -73,13 +73,17 @@ const Home = () => {
         ),
     };
     const presentation3 = {
-        title: "Experience",
+        title: "Background",
         description: `
         I'm a Frontend developer with a solid foundation in web development. I made a career transition into this field after completing a 2-year vocational education program in frontend development.
         
-        Since September 2023, I've been interning at iQuest, a fast growing propTech company, where I've had the opportunity to apply my knowledge in a professional setting. At iQuest, I've primarily worked with Angular, developing applications to streamline property management processes. It's been an exhilarating journey, collaborating with talented colleagues and contributing to innovative solutions that enhance property management efficiency.
-        
-        Prior to my internship, I dedicated time to completing additional courses in web development and programming, further expanding my skill set and staying abreast of the latest industry trends. I'm passionate about frontend development and excited about the endless possibilities it offers for creating intuitive and impactful user experiences.
+        Since September 2023, I've been interning at iQuest, a fast growing propTech company, where I've had the opportunity to apply my knowledge in a professional setting. At iQuest, I've primarily worked with Angular, developing applications to streamline property management processes. It's been an exhilarating journey, collaborating with talented colleagues and contributing to innovative solutions that enhance property management efficiency...
+        `,
+    };
+
+    const presentation4 = {
+        title: "",
+        description: `Prior to my internship, I dedicated time to completing additional courses in web development and programming, further expanding my skill set and staying abreast of the latest industry trends. I'm passionate about frontend development and excited about the endless possibilities it offers for creating intuitive and impactful user experiences.
         
         Looking ahead, I'm eager to continue growing as a frontend developer, exploring new technologies, and contributing to projects that make a meaningful difference. Let's connect and embark on this journey together!
         `,
@@ -144,17 +148,12 @@ const Home = () => {
                                 <Information content={presentation3} />
                             </div>
                             <div className="embla__slide information-container" key="3">
+                                <Information content={presentation4} />
+                            </div>
+                            <div className="embla__slide information-container" key="4">
                                 <Information content={presentation} />
                             </div>
                         </div>
-                        {/* <div className="button-container">
-                            <button className="embla__prev btn" onClick={scrollPrev}>
-                                Prev
-                            </button>
-                            <button className="embla__next btn" onClick={scrollNext}>
-                                Next
-                            </button>
-                        </div> */}
                         <div className="embla__dots">
                             {scrollSnaps.map((_, index) => (
                                 <DotButton
