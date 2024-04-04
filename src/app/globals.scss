@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "mixins";
 
 @font-face {
     font-family: "Outrun Future";
@@ -69,6 +70,7 @@ main {
     textarea {
         padding: 5px;
         border-radius: 8px;
+        color: #000;
     }
 
     .contact__icons-container {
@@ -170,12 +172,40 @@ main {
     animation: flicker 0.2s infinite alternate;
 }
 
+.front,
+.end,
+.dev {
+    @include breakpoint(phone) {
+        font-size: 5em;
+    }
+
+    @include breakpoint(tablet) {
+        font-size: 6em;
+    }
+
+    @include breakpoint(laptop) {
+        font-size: 7em;
+    }
+}
+
 .bg-sunrise {
     position: fixed;
     width: 100%;
     transition: top 1s;
     top: -15%;
     overflow: hidden;
+
+    @include breakpoint(phone) {
+        top: 40%;
+    }
+
+    @include breakpoint(tablet) {
+        top: 20%;
+    }
+
+    @include breakpoint(laptop) {
+        top: 10%;
+    }
 }
 
 .graph-container {
@@ -244,6 +274,10 @@ main {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @include breakpoint(phone) {
+            width: 80vw;
+        }
     }
 
     h3 {
@@ -251,7 +285,9 @@ main {
     }
     p {
         word-wrap: break-word;
+
         font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+        padding: 5%;
     }
     .image-wrapper {
         display: flex;
@@ -413,6 +449,18 @@ main {
     transform: scale(0);
     padding-bottom: 5rem;
     width: min-content;
+
+    @include breakpoint(phone) {
+        width: 90%;
+    }
+
+    @include breakpoint(tablet) {
+        width: 90%;
+    }
+
+    @include breakpoint(laptop) {
+        width: 90%;
+    }
 }
 .embla__container {
     display: flex;
@@ -420,6 +468,8 @@ main {
 .embla__slide {
     flex: 0 0 100%;
     min-width: 0;
+    display: flex;
+    justify-content: center;
 }
 .embla__dots {
     display: flex;

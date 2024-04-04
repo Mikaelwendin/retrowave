@@ -6,6 +6,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer">
+                <h2>Contact</h2>
                 <ContactForm></ContactForm>
                 <div className="contact__icons-container">
                     <a
