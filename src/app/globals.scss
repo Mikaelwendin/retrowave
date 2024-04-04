@@ -8,7 +8,6 @@
     src: url("/fonts/outrun-future.woff2") format("woff2"),
         url("/fonts/outrun-future.woff") format("woff"),
         url("/fonts/outrun-future.otf") format("opentype");
-    /* Add more src lines for additional font formats if needed */
     font-weight: normal;
     font-style: normal;
 }
@@ -18,7 +17,6 @@
     src: url("/fonts/outrun-future-bold.woff2") format("woff2"),
         url("/fonts/outrun-future-bold.woff") format("woff"),
         url("/fonts/outrun-future-bold.otf") format("opentype");
-    /* Add more src lines for additional font formats if needed */
     font-weight: bold;
     font-style: normal;
 }
@@ -28,7 +26,6 @@
     src: url("/fonts/outrun-future-bold-italic.woff2") format("woff2"),
         url("/fonts/outrun-future-bold-italic.woff") format("woff"),
         url("/fonts/outrun-future-bold-italic.otf") format("opentype");
-    /* Add more src lines for additional font formats if needed */
     font-weight: bold;
     font-style: italic;
 }
@@ -56,8 +53,6 @@ main {
     align-items: center;
     flex-direction: column;
     position: relative;
-
-    /* ContactForm.module.css */
 
     .contact__form {
         display: flex;
